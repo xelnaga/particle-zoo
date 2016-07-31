@@ -3,6 +3,7 @@ package net.xelnaga.particlezoo.quark
 import net.xelnaga.particlezoo.attribute.ColorCharge.Red
 import net.xelnaga.particlezoo.attribute.ElectricCharge.{NegativeOneThird, TwoThirds}
 import net.xelnaga.particlezoo.attribute.Generation.{First, Second, Third}
+import net.xelnaga.particlezoo.attribute.Interaction.{Electromagnetic, Gravity, Strong, Weak}
 import net.xelnaga.particlezoo.attribute.QuarkType.{DownType, UpType}
 import net.xelnaga.particlezoo.attribute.Spin.Half
 import net.xelnaga.particlezoo.attribute.UpTypeQuark
@@ -43,56 +44,62 @@ class QuarkSpec extends FunSuite with Matchers {
   )
 
   upType.foreach { quark =>
-    test(s"up type quarks should have electric charge: ${quark.name}, 2/3") {
+    test(s"all up type quarks have electric charge of 2/3e: ${quark.name}") {
       quark.electricCharge shouldBe TwoThirds
     }
   }
 
   downType.foreach { quark =>
-    test(s"down type quarks should have electric charge: ${quark.name}, -1/3") {
+    test(s"all down type quarks have electric charge of -1/3e: ${quark.name}") {
       quark.electricCharge shouldBe NegativeOneThird
     }
   }
 
   firstGeneration.foreach { quark =>
-    test(s"quarks should have generation: ${quark.name}, First") {
+    test(s"all first generation quarks have generation first: ${quark.name}") {
       quark.generation shouldBe First
     }
   }
 
   secondGeneration.foreach { quark =>
-    test(s"quarks should have generation: ${quark.name}, Second") {
+    test(s"all second generation quarks have generation second: ${quark.name}") {
       quark.generation shouldBe Second
     }
   }
 
   thirdGeneration.foreach { quark =>
-    test(s"quarks should have generation: ${quark.name}, Third") {
+    test(s"all third generation quarks have generation third: ${quark.name}") {
       quark.generation shouldBe Third
     }
   }
 
   upType.foreach { quark =>
-    test(s"quarks should have type: ${quark.name}, UpType") {
+    test(s"all up type quarks have type of up type: ${quark.name}") {
       quark.quarkType shouldBe UpType
     }
   }
 
   downType.foreach { quark =>
-    test(s"quarks should have type: ${quark.name}, DownType") {
+    test(s"all down type quarks have type of down type: ${quark.name}") {
       quark.quarkType shouldBe DownType
     }
   }
 
   quarks.foreach { quark =>
-    test(s"quarks should have spin: ${quark.name}, Half") {
+    test(s"all quarks have spin half: ${quark.name}") {
       quark.spin shouldBe Half
     }
   }
 
   symbols.foreach { case (quark, symbol) =>
-    test(s"quarks should have symbol: ${quark.name}, $symbol") {
+    test(s"all quarks have a symbol: ${quark.name}, $symbol") {
       quark.symbol shouldBe symbol
+    }
+  }
+
+  quarks.foreach { quark =>
+    test(s"all quarks experience all four fundamental interactions: ${quark.name}") {
+      quark.interactions shouldBe Vector(Gravity, Electromagnetic, Strong, Weak)
     }
   }
 }

@@ -1,5 +1,6 @@
 package net.xelnaga.particlezoo.quark
 
+import net.xelnaga.particlezoo.attribute.Interaction.{Electromagnetic, Gravity, Strong, Weak}
 import net.xelnaga.particlezoo.attribute.Spin.Half
 import net.xelnaga.particlezoo.attribute._
 
@@ -10,6 +11,8 @@ trait Quark { self =>
   val electricCharge: ElectricCharge
 
   val generation: Generation
+
+  val interactions: Seq[Interaction] = Vector(Gravity, Electromagnetic, Strong, Weak)
 
   val name: String = self.getClass.getSimpleName.replace("$", "")
 
