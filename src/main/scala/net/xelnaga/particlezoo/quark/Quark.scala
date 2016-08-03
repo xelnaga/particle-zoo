@@ -1,9 +1,6 @@
 package net.xelnaga.particlezoo.quark
 
-import net.xelnaga.particlezoo.attribute.ElectricCharge.{NegativeOneThird, TwoThirds}
 import net.xelnaga.particlezoo.attribute.Interaction.{Electromagnetic, Gravity, Strong, Weak}
-import net.xelnaga.particlezoo.attribute.MatterType.{Antimatter, Matter}
-import net.xelnaga.particlezoo.attribute.QuarkType.{DownType, UpType}
 import net.xelnaga.particlezoo.attribute.Spin.Half
 import net.xelnaga.particlezoo.attribute._
 
@@ -11,22 +8,7 @@ trait Quark { self =>
 
   val colorCharge: ColorCharge
 
-  lazy val electricCharge: ElectricCharge = {
-
-    quarkType match {
-      case UpType =>
-        matterType match {
-          case Matter => TwoThirds
-          case Antimatter => NegativeOneThird
-        }
-
-      case DownType =>
-        matterType match {
-          case Matter => NegativeOneThird
-          case Antimatter => TwoThirds
-        }
-    }
-  }
+  val electricCharge: ElectricCharge
 
   val generation: Generation
 

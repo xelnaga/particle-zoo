@@ -1,13 +1,16 @@
 package net.xelnaga.particlezoo.quark
 
-import net.xelnaga.particlezoo.attribute.ColorCharge.Red
-import net.xelnaga.particlezoo.attribute.ElectricCharge
+import net.xelnaga.particlezoo.attribute.ColorCharge.{Antired, Red}
 import net.xelnaga.particlezoo.attribute.ElectricCharge.{NegativeOneThird, TwoThirds}
 import net.xelnaga.particlezoo.attribute.Generation.{First, Second, Third}
 import net.xelnaga.particlezoo.attribute.Interaction.{Electromagnetic, Gravity, Strong, Weak}
 import net.xelnaga.particlezoo.attribute.MatterType.{Antimatter, Matter}
 import net.xelnaga.particlezoo.attribute.QuarkType.{DownType, UpType}
 import net.xelnaga.particlezoo.attribute.Spin.Half
+import net.xelnaga.particlezoo.quark.antimatter.downtype.{Antibottom, Antidown, Antistrange}
+import net.xelnaga.particlezoo.quark.antimatter.uptype.{Anticharm, Antitop, Antiup}
+import net.xelnaga.particlezoo.quark.matter.downtype.{Bottom, Down, Strange}
+import net.xelnaga.particlezoo.quark.matter.uptype.{Charm, Top, Up}
 import org.scalatest.{FunSuite, Matchers}
 
 class QuarkSpec extends FunSuite with Matchers {
@@ -19,13 +22,12 @@ class QuarkSpec extends FunSuite with Matchers {
   val top = Top(Red)
   val bottom = Bottom(Red)
 
-  val antiup = Antiup(Red)
-  val antidown = Antidown(Red)
-  val anticharm = Anticharm(Red)
-  val antistrange = Antistrange(Red)
-  val antitop = Antitop(Red)
-  val antibottom = Antibottom(Red)
-
+  val antiup = Antiup(Antired)
+  val antidown = Antidown(Antired)
+  val anticharm = Anticharm(Antired)
+  val antistrange = Antistrange(Antired)
+  val antitop = Antitop(Antired)
+  val antibottom = Antibottom(Antired)
 
   val quarks = Vector(
     up,
