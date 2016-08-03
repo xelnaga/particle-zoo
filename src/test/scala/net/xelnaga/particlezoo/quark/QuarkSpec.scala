@@ -6,7 +6,6 @@ import net.xelnaga.particlezoo.attribute.Generation.{First, Second, Third}
 import net.xelnaga.particlezoo.attribute.Interaction.{Electromagnetic, Gravity, Strong, Weak}
 import net.xelnaga.particlezoo.attribute.QuarkType.{DownType, UpType}
 import net.xelnaga.particlezoo.attribute.Spin.Half
-import net.xelnaga.particlezoo.attribute.UpTypeQuark
 import org.scalatest.{FunSuite, Matchers}
 
 class QuarkSpec extends FunSuite with Matchers {
